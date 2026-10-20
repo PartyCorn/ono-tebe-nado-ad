@@ -1,1 +1,291 @@
-/* место для вашего кода */
+:root {
+  /* Затемнение 60% поверх фоновых картинок */
+  --shade: linear-gradient(rgb(0 0 0 / 0.6), rgb(0 0 0 / 0.6));
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+}
+
+/* Общее */
+
+a {
+  color: inherit;
+  text-underline-position: under;
+}
+
+:is(nav, address) a,
+#lots > a {
+  text-decoration: underline;
+}
+
+a[aria-current] {
+  text-decoration: none;
+}
+
+:is(nav, address) a:hover,
+#lots > a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+address {
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+address a {
+  display: block;
+}
+
+/* Шапка */
+
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  height: 300px;
+  padding: 0 50px;
+}
+
+header nav a {
+  font-size: 1.125rem;
+  white-space: nowrap;
+}
+
+header ul {
+  display: flex;
+  gap: 24px;
+}
+
+header li {
+  list-style: circle;
+}
+
+header li:first-child {
+  list-style: none;
+}
+
+header > a {
+  width: 140px;
+  justify-self: center;
+}
+
+header img {
+  width: 100%;
+}
+
+header address {
+  justify-self: end;
+}
+
+/* Обложка */
+
+#cover {
+  padding: 50px;
+  color: #fff;
+  background-image: var(--shade), url(../images/cover.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#cover h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 130px;
+  font-size: 6.25rem;
+  line-height: 1;
+  letter-spacing: 30px;
+}
+
+#cover h1 > :nth-child(2) {
+  text-align: center;
+}
+
+/* Минус компенсирует лишний отступ letter-spacing после последней буквы */
+#cover h1 > :nth-child(3) {
+  margin-right: -30px;
+  text-align: right;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 130px;
+}
+
+.description p {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  word-spacing: 18px;
+}
+
+button {
+  border: 1px solid #fff;
+  padding: 16px 32px;
+  color: #fff;
+  font: normal 1.375rem "Raleway", sans-serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+/* Лоты */
+
+#lots {
+  padding: 0 50px;
+}
+
+#lots h2 {
+  padding: 0 0 30px 40px;
+}
+
+#lots ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  list-style: none;
+}
+
+/* Растягиваем карточку на всю высоту ячейки */
+#lots li,
+#lots li a {
+  display: grid;
+}
+
+#lots li a {
+  text-decoration: none;
+}
+
+#lots li:nth-child(1) article {
+  --image: url(../images/card-lot-01.jpg);
+}
+
+#lots li:nth-child(2) article {
+  --image: url(../images/card-lot-02.jpg);
+}
+
+#lots li:nth-child(3) article {
+  --image: url(../images/card-lot-03.jpg);
+}
+
+#lots article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 50px 40px;
+  color: #fff;
+  line-height: 1.2;
+  background-image: var(--shade), var(--image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#lots h3 {
+  font-size: 1.375rem;
+  text-decoration: underline;
+}
+
+#lots article p {
+  font-size: 1.25rem;
+}
+
+#lots > a {
+  display: block;
+  width: fit-content;
+  margin: 30px 0 0 40px;
+  font-size: 1.25rem;
+}
+
+/* Об аукционе */
+
+#about {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 24px;
+  padding: 0 50px;
+}
+
+#about > :first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+#about img {
+  width: 150px;
+}
+
+#about h2 {
+  padding: 100px 0;
+}
+
+#about > :last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+#about p {
+  font-size: 1.25rem;
+  line-height: normal;
+}
+
+/* Подвал */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 180px 50px 80px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer nav ul {
+  text-align: center;
+}
+
+footer nav a {
+  font-size: 1.125rem;
+  line-height: normal;
+}
+
+footer > ul {
+  display: flex;
+  gap: 48px;
+}
+
+footer img {
+  height: 48px;
+}
