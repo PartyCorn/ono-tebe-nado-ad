@@ -1,1 +1,3 @@
-https://github.com/PartyCorn/ono-tebe-nado-ad
+https://github.com/partycorn-edu/ono-tebe-nado
+
+![Полноразмерный скриншот страницы](images/result.png)
